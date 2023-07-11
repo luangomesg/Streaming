@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import MovieList from '../../components/moviesList/index.js'
-import { ContainerMain, FirstList, SeccondList, ThirdList, FourthList, FifthList, SixthList, SeventhList, EighthList } from './styles.js'
+import { ContainerMain, FirstList, SeccondList, ThirdList, FourthList, FifthList, SixthList, SeventhList, EighthList, ListRow } from './styles.js'
 
 function Home () {
   const key = 'ed00c2b51b191413d3c65a4452f4b54a'
@@ -94,89 +94,107 @@ function Home () {
       <FirstList>
         <h2>Originais da Netflix</h2>
         <MovieList>
-          {originalMovies.map((movie) => {
-            return (
-            <div key={movie.id}> <img src={`http://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.original_title}/></div>
-            )
-          })}
+          <ListRow>
+            {originalMovies.map((movie) => {
+              return (
+                <div className='movie-item' key={movie.id}> <img src={`http://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.original_title} /></div>
+              )
+            })}
+
+          </ListRow>
+
         </MovieList>
       </FirstList>
 
       <SeccondList>
-          <h2>Recomendados para Você</h2>
-          <MovieList>
+        <h2>Recomendados para Você</h2>
+        <MovieList>
+          <ListRow>
             {trendingMovies.map((movie) => {
               return (
-                <div key={movie.id}><img src={`http://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.original_title}/></div>
+                <div className='movie-item' key={movie.id}><img src={`http://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.original_title} /></div>
               )
             })}
-          </MovieList>
+          </ListRow>
+        </MovieList>
       </SeccondList>
 
       <ThirdList>
-          <h2>Em Alta</h2>
-          <MovieList>
+        <h2>Em Alta</h2>
+        <MovieList>
+          <ListRow>
             {topratedMovies.map((movie) => {
               return (
-                <div key={movie.id}><img src={`http://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.original_title}/></div>
+                <div className='movie-item' key={movie.id}><img src={`http://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.original_title} /></div>
               )
             })}
-          </MovieList>
+          </ListRow>
+        </MovieList>
       </ThirdList>
 
       <FourthList>
-      <h2>Filmes de Ação</h2>
-      <MovieList>
-        {actionMovies.map((movie) => {
-          return (
-          <div key={movie.id}><img src={`http://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.original_title}/></div>
-          )
-        })}
-      </MovieList>
+        <h2>Filmes de Ação</h2>
+        <MovieList>
+          <ListRow>
+            {actionMovies.map((movie) => {
+              return (
+                <div className='movie-item' key={movie.id}><img src={`http://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.original_title} /></div>
+              )
+            })}
+          </ListRow>
+        </MovieList>
       </FourthList>
 
       <FifthList>
-      <h2>Filmes de Comédia</h2>
-      <MovieList>
-        {comedyMovies.map((movie) => {
-          return (
-          <div key={movie.id}><img src={`http://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.original_title}/></div>
-          )
-        })}
-      </MovieList>
+        <h2>Filmes de Comédia</h2>
+        <MovieList>
+          <ListRow>
+            {comedyMovies.map((movie) => {
+              return (
+                <div className='movie-item' key={movie.id}><img src={`http://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.original_title} /></div>
+              )
+            })}
+          </ListRow>
+        </MovieList>
       </FifthList>
 
       <SixthList>
-      <h2>Filmes de Terror</h2>
-      <MovieList>
-        {horrorMovies.map((movie) => {
-          return (
-          <div key={movie.id}><img src={`http://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.original_title}/></div>
-          )
-        })}
-      </MovieList>
+        <h2>Filmes de Terror</h2>
+        <MovieList>
+          <ListRow>
+            {horrorMovies.map((movie) => {
+              return (
+                <div className='movie-item' key={movie.id}><img src={`http://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.original_title} /></div>
+              )
+            })}
+          </ListRow>
+        </MovieList>
       </SixthList>
 
       <SeventhList>
-      <h2>Filmes de Romance</h2>
-      <MovieList>
-        {romanceMovies.map((movie) => {
-          return (
-          <div key={movie.id}><img src={`http://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.original_title}/></div>
-          )
-        })}
-      </MovieList>
+        <h2>Filmes de Romance</h2>
+        <MovieList>
+          <ListRow>
+            {romanceMovies.map((movie) => {
+              return (
+                <div className='movie-item' key={movie.id}><img src={`http://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.original_title} /></div>
+              )
+            })}
+          </ListRow>
+        </MovieList>
       </SeventhList>
 
       <EighthList>
-      <h2>Filmes de Documentários</h2>
-      <MovieList>
-        {documentaryMovies.map((movie) => {
-          return (
-          <div key={movie.id}><img src={`http://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.original_title}/></div>
-          )
-        })}
-      </MovieList>
+        <h2>Filmes de Documentários</h2>
+        <MovieList>
+          <ListRow>
+            {documentaryMovies.map((movie) => {
+              return (
+                <div className='movie-item' key={movie.id}><img src={`http://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.original_title} /></div>
+              )
+            })}
+          </ListRow>
+        </MovieList>
       </EighthList>
     </ContainerMain>
   )

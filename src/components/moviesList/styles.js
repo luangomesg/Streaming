@@ -2,10 +2,8 @@ import styled from 'styled-components'
 
 export const List = styled.div`
     display: flex;
-    gap: 20px;
+    width: 9999999px;
 
-    img {
 
-        height: 300px;
-    }
+    
 `

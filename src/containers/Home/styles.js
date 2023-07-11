@@ -6,11 +6,18 @@ export const ContainerMain = styled.div`
     width: 100%;
     height: 100%;
     background-color: #111;
-    color: #fff
+    color: #fff;
+    overflow-x: hidden;
+
+    h2 {
+        margin-left: 30px;
+    }
+
 `
 
 export const FirstList = styled.div`
     background-color: transparent;
+
 
 `
 
@@ -40,4 +47,24 @@ export const SeventhList = styled.div`
 
 export const EighthList = styled.div`
     background-color: transparent;
+`
+
+export const ListRow = styled.div`
+    padding-left: 30px;
+
+    .movie-item {
+        display: inline-block;
+        width: 200px;
+
+        img {
+            width: 100%;
+            transform: scale(0.9);
+            transition: all 0.2s;
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(1)
+            }
+        }
+    }
 `
