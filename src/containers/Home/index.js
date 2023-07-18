@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
+import Contrast from '../../components/contrastMovie/index.js'
 import MovieList from '../../components/moviesList/index.js'
 import { ContainerMain, FirstList, SeccondList, ThirdList, FourthList, FifthList, SixthList, SeventhList, EighthList, ListRow } from './styles.js'
 
@@ -13,14 +14,18 @@ function Home () {
   const [horrorMovies, setHorrorMovies] = useState([])
   const [romanceMovies, setRomanceMovies] = useState([])
   const [documentaryMovies, setDocumentaryMovies] = useState([])
+  const [featuredData, setFeaturedData] = useState(null)
 
   useEffect(() => {
     function originalList () {
-      fetch(`https://api.themoviedb.org/3/discover/movie?with_network=214&language=pt-BR&api_key=${key}`)
+      fetch(`https://api.themoviedb.org/3/discover/tv?with_networks=213&language=pt-BR&api_key=${key}`)
         .then(response => response.json())
         .then((response) => {
           setOriginalMovies(response.results)
-          console.log(response)
+
+          const randomNumber = Math.floor(Math.random() * (response.results.length))
+          const choosen = response.results[randomNumber]
+          getMovieInfo(choosen.id, 'tv')
         }).catch(error => console.log(error))
     }
 
@@ -80,6 +85,29 @@ function Home () {
         }).catch(error => console.log(error))
     }
 
+    async function getMovieInfo (movieId, type) {
+      if (movieId) {
+        switch (type) {
+          case 'movie':
+            await fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=pt-BR&api_key=${key}`).then((response) => response.json())
+              .then((response) => {
+                setFeaturedData(response)
+              })
+            break
+          case 'tv':
+            await fetch(`https://api.themoviedb.org/3/tv/${movieId}?language=pt-BR&api_key=${key}`).then((response) => response.json())
+              .then((response) => {
+                setFeaturedData(response)
+                console.log(response)
+              })
+            break
+          default:
+            console.log('erro')
+            break
+        }
+      }
+    }
+
     originalList()
     trendingList()
     topratedList()
@@ -91,6 +119,7 @@ function Home () {
   }, [])
   return (
     <ContainerMain>
+      {featuredData && <Contrast item={featuredData}/>}
       <FirstList>
         <h2>Originais da Netflix</h2>
         <MovieList>

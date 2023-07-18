@@ -12,5 +12,5 @@ function MovieList (props) {
 export default MovieList
 
 MovieList.propTypes = {
-  children: PropTypes.array
+  children: PropTypes.object
 }
