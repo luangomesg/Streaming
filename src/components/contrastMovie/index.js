@@ -18,10 +18,12 @@ function Contrast (props) {
         }}>
 
           <ContrastWindowVertical>
+
             <ContrastWindowHorizontal>
+
             <div className='movie-name'>{props.item.name}</div>
             <div className='movie-infos'>
-              <div>{props.item.vote_average} pontos</div>
+              <div>{props.item.vote_average.toFixed(1)} pontos</div>
               <div>{firstDate.getFullYear()}</div>
               <div>{props.item.number_of_seasons} temporada{props.item.number_of_seasons === 1 ? '' : 's'}</div>
             </div>

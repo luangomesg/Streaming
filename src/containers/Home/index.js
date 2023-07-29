@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 
 import Contrast from '../../components/contrastMovie/index.js'
+import MyHeader from '../../components/Header/index.js'
 import MovieList from '../../components/moviesList/index.js'
-import { ContainerMain, FirstList, SeccondList, ThirdList, FourthList, FifthList, SixthList, SeventhList, EighthList, ListRow } from './styles.js'
+import { ContainerMain, FirstList, SeccondList, ThirdList, FourthList, FifthList, SixthList, SeventhList, EighthList, ListRow, Footer } from './styles.js'
 
 function Home () {
   const key = 'ed00c2b51b191413d3c65a4452f4b54a'
@@ -119,6 +120,7 @@ function Home () {
   }, [])
   return (
     <ContainerMain>
+      <MyHeader/>
       {featuredData && <Contrast item={featuredData}/>}
       <FirstList>
         <h2>Originais da Netflix</h2>
@@ -225,6 +227,11 @@ function Home () {
           </ListRow>
         </MovieList>
       </EighthList>
+      <Footer>
+        Feito com <span role='img' aria-label='coração'>❤</span> por <a href='https://www.linkedin.com/in/luan-gomes-galvão/'>Luan</a> <br/>
+        Direitos de imagem para Netflix <br/>
+        Dados pegos do site Themoviedb.org
+      </Footer>
     </ContainerMain>
   )
 }

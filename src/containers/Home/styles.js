@@ -8,6 +8,7 @@ export const ContainerMain = styled.div`
     background-color: #111;
     color: #fff;
     overflow-x: hidden;
+    
 
     h2 {
         margin-left: 30px;
@@ -17,7 +18,7 @@ export const ContainerMain = styled.div`
 
 export const FirstList = styled.div`
     background-color: transparent;
-
+    margin-top: -150px;
 
 `
 
@@ -66,5 +67,20 @@ export const ListRow = styled.div`
                 transform: scale(1)
             }
         }
+    }
+`
+
+export const Footer = styled.footer`
+    margin: 50px 0;
+    text-align: center;
+
+    a {
+        color: #E50914;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    span {
+        color: #E50914
     }
 `
