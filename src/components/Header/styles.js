@@ -9,7 +9,7 @@ export const Header = styled.header`
     position: fixed;
     z-index: 20;
     top: 0;
-    left: 20px;
+    
     background-color: ${props => props.change ? '#141414' : 'transparent'};
     transition: 0.5s linear;
     
@@ -19,6 +19,7 @@ export const Header = styled.header`
     img:nth-child(1) {
         height: 50px;
         cursor: pointer;
+        transform: translateX(20px);
     }
 
     img:nth-child(2) {

@@ -19,6 +19,7 @@ export const ContainerMain = styled.div`
 export const FirstList = styled.div`
     background-color: transparent;
     margin-top: -150px;
+    z-index: 19;
 
 `
 
@@ -51,14 +52,16 @@ export const EighthList = styled.div`
 `
 
 export const ListRow = styled.div`
+    display: flex;
     padding-left: 30px;
+    transition: all 0.4s ease;
 
     .movie-item {
         display: inline-block;
         width: 200px;
 
         img {
-            width: 100%;
+            width: 200px;
             transform: scale(0.9);
             transition: all 0.2s;
             cursor: pointer;
@@ -82,5 +85,45 @@ export const Footer = styled.footer`
 
     span {
         color: #E50914
+    }
+`
+
+export const NavigateBefore = styled.div`
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 300px;
+    left: 0;
+    z-index: 20;
+    overflow: hidden;
+    background-color: rgba(0,0,0, 0.6);
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.5s;
+
+    &:hover {
+        opacity: 1;
+    }
+`
+
+export const NavigateAfter = styled.div`
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 300px;
+    right: 0;
+    z-index: 20;
+    overflow: hidden;
+    background-color: rgba(0,0,0, 0.6);
+    cursor: pointer;
+    opacity: 0;
+    transition: all ease 0.5s;
+
+    &:hover {
+        opacity: 1;
     }
 `

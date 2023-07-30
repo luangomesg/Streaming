@@ -5,7 +5,7 @@ import Profile from '../../assets/profile.png'
 import { Header } from './styles.js'
 
 function MyHeader () {
-  const [scrollDown, setScrollDown] = useState(false)
+  const [scrollDown, setScrollDown] = useState(0)
 
   function getMouse () {
     const mouseY = window.scrollY

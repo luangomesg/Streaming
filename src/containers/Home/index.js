@@ -1,9 +1,11 @@
+import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore'
+import NavigateNextIcon from '@mui/icons-material/NavigateNext'
 import React, { useEffect, useState } from 'react'
 
 import Contrast from '../../components/contrastMovie/index.js'
 import MyHeader from '../../components/Header/index.js'
 import MovieList from '../../components/moviesList/index.js'
-import { ContainerMain, FirstList, SeccondList, ThirdList, FourthList, FifthList, SixthList, SeventhList, EighthList, ListRow, Footer } from './styles.js'
+import { ContainerMain, FirstList, SeccondList, ThirdList, FourthList, FifthList, SixthList, SeventhList, EighthList, ListRow, Footer, NavigateBefore, NavigateAfter } from './styles.js'
 
 function Home () {
   const key = 'ed00c2b51b191413d3c65a4452f4b54a'
@@ -16,6 +18,150 @@ function Home () {
   const [romanceMovies, setRomanceMovies] = useState([])
   const [documentaryMovies, setDocumentaryMovies] = useState([])
   const [featuredData, setFeaturedData] = useState(null)
+  const [scrollX, setScrollX] = useState(0)
+  const [scrollY, setScrollY] = useState(0)
+  const [scrollZ, setScrollZ] = useState(0)
+  const [scrollA, setScrollA] = useState(0)
+  const [scrollB, setScrollB] = useState(0)
+  const [scrollC, setScrollC] = useState(0)
+  const [scrollD, setScrollD] = useState(0)
+  const [scrollE, setScrollE] = useState(0)
+
+  function firstLeftArrow () {
+    let x = scrollX + Math.round(window.innerWidth / 2)
+    if (x > 0) {
+      x = 0
+    }
+    setScrollX(x)
+  }
+
+  function firstRightArrow () {
+    let x = scrollX - Math.round(window.innerWidth / 2)
+    const listW = originalMovies.length * 200
+    if ((window.innerWidth - listW) > x) {
+      x = (window.innerWidth - listW) - 60
+    }
+    setScrollX(x)
+  }
+
+  function seccondLeftArrow () {
+    let x = scrollY + Math.round(window.innerWidth / 2)
+    if (x > 0) {
+      x = 0
+    }
+    setScrollY(x)
+  }
+
+  function seccondRightArrow () {
+    let x = scrollY - Math.round(window.innerWidth / 2)
+    const listW = trendingMovies.length * 200
+    if ((window.innerWidth - listW) > x) {
+      x = (window.innerWidth - listW) - 60
+    }
+    setScrollY(x)
+  }
+
+  function thirdLeftArrow () {
+    let x = scrollZ + Math.round(window.innerWidth / 2)
+    if (x > 0) {
+      x = 0
+    }
+    setScrollZ(x)
+  }
+
+  function thirdRightArrow () {
+    let x = scrollZ - Math.round(window.innerWidth / 2)
+    const listW = topratedMovies.length * 200
+    if ((window.innerWidth - listW) > x) {
+      x = (window.innerWidth - listW) - 60
+    }
+    setScrollZ(x)
+  }
+
+  function FourthLeftArrow () {
+    let x = scrollA + Math.round(window.innerWidth / 2)
+    if (x > 0) {
+      x = 0
+    }
+    setScrollA(x)
+  }
+
+  function FourthRightArrow () {
+    let x = scrollA - Math.round(window.innerWidth / 2)
+    const listW = actionMovies.length * 200
+    if ((window.innerWidth - listW) > x) {
+      x = (window.innerWidth - listW) - 60
+    }
+    setScrollA(x)
+  }
+
+  function FivethLeftArrow () {
+    let x = scrollB + Math.round(window.innerWidth / 2)
+    if (x > 0) {
+      x = 0
+    }
+    setScrollB(x)
+  }
+
+  function FivethRightArrow () {
+    let x = scrollB - Math.round(window.innerWidth / 2)
+    const listW = comedyMovies.length * 200
+    if ((window.innerWidth - listW) > x) {
+      x = (window.innerWidth - listW) - 60
+    }
+    setScrollB(x)
+  }
+
+  function SixthLeftArrow () {
+    let x = scrollC + Math.round(window.innerWidth / 2)
+    if (x > 0) {
+      x = 0
+    }
+    setScrollC(x)
+  }
+
+  function SixthRightArrow () {
+    let x = scrollC - Math.round(window.innerWidth / 2)
+    const listW = horrorMovies.length * 200
+    if ((window.innerWidth - listW) > x) {
+      x = (window.innerWidth - listW) - 60
+    }
+    setScrollC(x)
+  }
+
+  function SeventhLeftArrow () {
+    let x = scrollD + Math.round(window.innerWidth / 2)
+    if (x > 0) {
+      x = 0
+    }
+    setScrollD(x)
+  }
+
+  function SeventhRightArrow () {
+    let x = scrollD - Math.round(window.innerWidth / 2)
+    const listW = romanceMovies.length * 200
+    if ((window.innerWidth - listW) > x) {
+      x = (window.innerWidth - listW) - 60
+    }
+    setScrollD(x)
+  }
+
+  function EighthLeftArrow () {
+    let x = scrollE + Math.round(window.innerWidth / 2)
+    if (x > 0) {
+      x = 0
+    }
+    setScrollE(x)
+  }
+
+  function EighthRightArrow () {
+    let x = scrollE - Math.round(window.innerWidth / 2)
+    const listW = documentaryMovies.length * 200
+    if ((window.innerWidth - listW) > x) {
+      x = (window.innerWidth - listW) - 60
+    }
+    setScrollE(x)
+  }
 
   useEffect(() => {
     function originalList () {
@@ -99,7 +245,6 @@ function Home () {
             await fetch(`https://api.themoviedb.org/3/tv/${movieId}?language=pt-BR&api_key=${key}`).then((response) => response.json())
               .then((response) => {
                 setFeaturedData(response)
-                console.log(response)
               })
             break
           default:
@@ -117,15 +262,21 @@ function Home () {
     horrorList()
     romanceList()
     documentaryList()
-  }, [])
+  }, [setOriginalMovies])
   return (
     <ContainerMain>
       <MyHeader/>
       {featuredData && <Contrast item={featuredData}/>}
       <FirstList>
         <h2>Originais da Netflix</h2>
-        <MovieList>
-          <ListRow>
+        <NavigateBefore onClick={firstLeftArrow}>
+          <NavigateBeforeIcon style={{ fontSize: 50 }}/>
+        </NavigateBefore>
+        <NavigateAfter onClick={firstRightArrow}>
+          <NavigateNextIcon style={{ fontSize: 50 }}/>
+        </NavigateAfter>
+        <MovieList >
+          <ListRow style={{ marginLeft: scrollX, width: originalMovies.length * 150 }}>
             {originalMovies.map((movie) => {
               return (
                 <div className='movie-item' key={movie.id}> <img src={`http://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.original_title} /></div>
@@ -139,8 +290,14 @@ function Home () {
 
       <SeccondList>
         <h2>Recomendados para Você</h2>
+        <NavigateBefore onClick={seccondLeftArrow}>
+          <NavigateBeforeIcon style={{ fontSize: 50 }}/>
+        </NavigateBefore>
+        <NavigateAfter onClick={seccondRightArrow}>
+          <NavigateNextIcon style={{ fontSize: 50 }}/>
+        </NavigateAfter>
         <MovieList>
-          <ListRow>
+          <ListRow style={{ marginLeft: scrollY, width: trendingMovies.length * 150 }}>
             {trendingMovies.map((movie) => {
               return (
                 <div className='movie-item' key={movie.id}><img src={`http://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.original_title} /></div>
@@ -152,8 +309,14 @@ function Home () {
 
       <ThirdList>
         <h2>Em Alta</h2>
+        <NavigateBefore onClick={thirdLeftArrow}>
+          <NavigateBeforeIcon style={{ fontSize: 50 }}/>
+        </NavigateBefore>
+        <NavigateAfter onClick={thirdRightArrow}>
+          <NavigateNextIcon style={{ fontSize: 50 }}/>
+        </NavigateAfter>
         <MovieList>
-          <ListRow>
+          <ListRow style={{ marginLeft: scrollZ, width: topratedMovies.length * 150 }}>
             {topratedMovies.map((movie) => {
               return (
                 <div className='movie-item' key={movie.id}><img src={`http://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.original_title} /></div>
@@ -165,8 +328,14 @@ function Home () {
 
       <FourthList>
         <h2>Filmes de Ação</h2>
+        <NavigateBefore onClick={FourthLeftArrow}>
+          <NavigateBeforeIcon style={{ fontSize: 50 }}/>
+        </NavigateBefore>
+        <NavigateAfter onClick={FourthRightArrow}>
+          <NavigateNextIcon style={{ fontSize: 50 }}/>
+        </NavigateAfter>
         <MovieList>
-          <ListRow>
+          <ListRow style={{ marginLeft: scrollA, width: actionMovies.length * 150 }}>
             {actionMovies.map((movie) => {
               return (
                 <div className='movie-item' key={movie.id}><img src={`http://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.original_title} /></div>
@@ -176,10 +345,16 @@ function Home () {
         </MovieList>
       </FourthList>
 
-      <FifthList>
+      <FifthList >
         <h2>Filmes de Comédia</h2>
+        <NavigateBefore onClick={FivethLeftArrow}>
+          <NavigateBeforeIcon style={{ fontSize: 50 }}/>
+        </NavigateBefore>
+        <NavigateAfter onClick={FivethRightArrow}>
+          <NavigateNextIcon style={{ fontSize: 50 }}/>
+        </NavigateAfter>
         <MovieList>
-          <ListRow>
+          <ListRow style={{ marginLeft: scrollB, width: comedyMovies.length * 150 }}>
             {comedyMovies.map((movie) => {
               return (
                 <div className='movie-item' key={movie.id}><img src={`http://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.original_title} /></div>
@@ -191,8 +366,14 @@ function Home () {
 
       <SixthList>
         <h2>Filmes de Terror</h2>
+        <NavigateBefore onClick={SixthLeftArrow}>
+          <NavigateBeforeIcon style={{ fontSize: 50 }}/>
+        </NavigateBefore>
+        <NavigateAfter onClick={SixthRightArrow}>
+          <NavigateNextIcon style={{ fontSize: 50 }}/>
+        </NavigateAfter>
         <MovieList>
-          <ListRow>
+          <ListRow style={{ marginLeft: scrollC, width: horrorMovies.length * 150 }}>
             {horrorMovies.map((movie) => {
               return (
                 <div className='movie-item' key={movie.id}><img src={`http://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.original_title} /></div>
@@ -204,8 +385,14 @@ function Home () {
 
       <SeventhList>
         <h2>Filmes de Romance</h2>
+        <NavigateBefore onClick={SeventhLeftArrow}>
+          <NavigateBeforeIcon style={{ fontSize: 50 }}/>
+        </NavigateBefore>
+        <NavigateAfter onClick={SeventhRightArrow}>
+          <NavigateNextIcon style={{ fontSize: 50 }}/>
+        </NavigateAfter>
         <MovieList>
-          <ListRow>
+          <ListRow style={{ marginLeft: scrollD, width: romanceMovies.length * 150 }}>
             {romanceMovies.map((movie) => {
               return (
                 <div className='movie-item' key={movie.id}><img src={`http://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.original_title} /></div>
@@ -217,8 +404,14 @@ function Home () {
 
       <EighthList>
         <h2>Filmes de Documentários</h2>
+        <NavigateBefore onClick={EighthLeftArrow}>
+          <NavigateBeforeIcon style={{ fontSize: 50 }}/>
+        </NavigateBefore>
+        <NavigateAfter onClick={EighthRightArrow}>
+          <NavigateNextIcon style={{ fontSize: 50 }}/>
+        </NavigateAfter>
         <MovieList>
-          <ListRow>
+          <ListRow style={{ marginLeft: scrollE, width: documentaryMovies.length * 150 }}>
             {documentaryMovies.map((movie) => {
               return (
                 <div className='movie-item' key={movie.id}><img src={`http://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.original_title} /></div>
