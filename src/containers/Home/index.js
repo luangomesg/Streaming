@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react'
 import Contrast from '../../components/contrastMovie/index.js'
 import MyHeader from '../../components/Header/index.js'
 import MovieList from '../../components/moviesList/index.js'
-import { ContainerMain, FirstList, SeccondList, ThirdList, FourthList, FifthList, SixthList, SeventhList, EighthList, ListRow, Footer, NavigateBefore, NavigateAfter } from './styles.js'
+import { ContainerMain, FirstList, SeccondList, ThirdList, FourthList, FifthList, SixthList, SeventhList, EighthList, ListRow, Footer, NavigateBefore, NavigateAfter, Loading } from './styles.js'
 
 function Home () {
   const key = 'ed00c2b51b191413d3c65a4452f4b54a'
@@ -425,6 +425,20 @@ function Home () {
         Direitos de imagem para Netflix <br/>
         Dados pegos do site Themoviedb.org
       </Footer>
+      {((featuredData === null) ||
+(originalMovies.length < 20 ||
+   trendingMovies.length < 20 ||
+   topratedMovies.length < 20 ||
+   actionMovies.length < 20 ||
+   comedyMovies.length < 20 ||
+   horrorMovies.length < 20 ||
+   actionMovies.length < 20 ||
+   romanceMovies.length < 20 ||
+   documentaryMovies.length < 20)) &&
+  <Loading>
+    <img src='https://media.wired.com/photos/592744d3f3e2356fd800bf00/master/w_2560%2Cc_limit/Netflix_LoadTime.gif' alt='Loading'/>
+  </Loading>
+}
     </ContainerMain>
   )
 }

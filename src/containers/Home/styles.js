@@ -106,6 +106,10 @@ export const NavigateBefore = styled.div`
     &:hover {
         opacity: 1;
     }
+
+    @media (max-width: 760px) {
+        opacity: 1;
+    }
 `
 
 export const NavigateAfter = styled.div`
@@ -126,4 +130,20 @@ export const NavigateAfter = styled.div`
     &:hover {
         opacity: 1;
     }
+
+    @media (max-width: 760px) {
+        opacity: 1;
+    }
+`
+
+export const Loading = styled.div`
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 19;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
