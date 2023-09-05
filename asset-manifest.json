@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/luangomesg/Streaming/static/js/main.de4458c4.js",
-    "static/media/Netflix.png": "/luangomesg/Streaming/static/media/Netflix.f4070143e1f521da82a1.png",
-    "index.html": "/luangomesg/Streaming/index.html",
-    "main.de4458c4.js.map": "/luangomesg/Streaming/static/js/main.de4458c4.js.map"
+    "main.js": "/luangomesg/Malpoflix/static/js/main.24463899.js",
+    "static/media/Netflix.png": "/luangomesg/Malpoflix/static/media/Netflix.f4070143e1f521da82a1.png",
+    "index.html": "/luangomesg/Malpoflix/index.html",
+    "main.24463899.js.map": "/luangomesg/Malpoflix/static/js/main.24463899.js.map"
   },
   "entrypoints": [
-    "static/js/main.de4458c4.js"
+    "static/js/main.24463899.js"
   ]
 }
