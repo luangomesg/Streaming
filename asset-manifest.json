@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.js": "/nome-do-repositorio/static/js/main.f963107c.js",
+    "static/media/Netflix.png": "/nome-do-repositorio/static/media/Netflix.f4070143e1f521da82a1.png",
+    "index.html": "/nome-do-repositorio/index.html",
+    "main.f963107c.js.map": "/nome-do-repositorio/static/js/main.f963107c.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.f963107c.js"
+  ]
+}
